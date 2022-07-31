@@ -17,7 +17,7 @@
           </el-input>
         </el-col>
       </el-row>
-      <el-table :data="ordersList" border stripe>
+      <el-table :data="ordersList" :border="true" stripe>
         <el-table-column type="index" label="#"> </el-table-column>
         <el-table-column label="订单编号" prop="order_number" width="250px">
         </el-table-column>
@@ -37,7 +37,7 @@
           </template>
         </el-table-column>
         <el-table-column label="操作">
-          <template slot-scope="scope">
+          <template>
             <!-- 修改地址按钮 -->
             <el-button
               type="primary"

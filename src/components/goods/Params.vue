@@ -120,7 +120,7 @@
             >添加属性</el-button
           >
           <!-- 静态属性表格 -->
-          <el-table :data="onlyTabDate" border stripe>
+          <el-table :data="onlyTabDate" :border="true" stripe>
             <!-- 展开列 -->
              <el-table-column type="expand">
               <template slot-scope="scope">

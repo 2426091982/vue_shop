@@ -26,7 +26,7 @@
         :expand-type="false"
         show-index
         index-text="#"
-        border
+        :border="true"
         :show-row-hover="false"
       >
         <!-- 是否有效 -->
@@ -54,7 +54,7 @@
         </template>
 
         <!-- 操作 -->
-        <template slot="opt" slot-scope="scope">
+        <template slot="opt">
           <el-button size="mini" type="primary" icon="el-icon-edit"
             >编辑</el-button
           >
@@ -121,7 +121,7 @@ export default {
       queryInfo: {
         type: 3,
         pagenum: 1,
-        pagesize: 5
+        pagesize: 10
       },
       // 商品分类的数据列表，默认为空
       catelist: [],

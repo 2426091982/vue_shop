@@ -23,6 +23,7 @@ export default {
   data() {
     return {
         // 需要合并的选项
+        // 以下都是 eachart 报表的配置
       options: {
         title: {
           text: "用户来源"

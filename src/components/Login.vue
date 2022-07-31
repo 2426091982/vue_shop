@@ -42,18 +42,28 @@ export default {
     return {
       loginForm: {
         username: "admin",
-        password: "123456"
+        password: "123456",
       },
       loginFormRules: {
         username: [
           { required: true, message: "请输入用户名", trigger: "blur" },
-          { min: 3, max: 10, message: "长度在 3 到 10 个字符", trigger: "blur" }
+          {
+            min: 3,
+            max: 10,
+            message: "长度在 3 到 10 个字符",
+            trigger: "blur",
+          },
         ],
         password: [
           { required: true, message: "请输入用户名", trigger: "blur" },
-          { min: 1, max: 15, message: "长度在 5 到 15 个字符", trigger: "blur" }
-        ]
-      }
+          {
+            min: 1,
+            max: 15,
+            message: "长度在 5 到 15 个字符",
+            trigger: "blur",
+          },
+        ],
+      },
     };
   },
   methods: {
@@ -66,8 +76,11 @@ export default {
     /* 登录 */
     login() {
       // 调用表单验证方法
-      this.$refs.loginFormRef.validate(async valid => {
+      this.$refs.loginFormRef.validate(async (valid) => {
+        // 为空直接返回
         if (!valid) return;
+
+        // 请求登录
         const { data: res } = await this.$http.post("login", this.loginForm);
         if (res.meta.status != 200) {
           return this.$message.error("登录失败");
@@ -80,14 +93,19 @@ export default {
         // 2. 通过编程式导航跳转到后台主页，路由器地址是 /home
         this.$router.push("/home");
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="less" scoped>
 .login_container {
-  background-color: #2b4b6b;
+  background-image: linear-gradient(
+    -225deg,
+    #2cd8d5 0%,
+    #c5c1ff 56%,
+    #ffbac3 100%
+  );
   height: 100%;
   .login_box {
     width: 450px;

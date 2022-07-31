@@ -21,7 +21,8 @@ import 'quill/dist/quill.bubble.css' // for bubble theme
 Vue.use(VueQuillEditor);
 
 /* 配置请求和路径 */
-axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+// axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+axios.defaults.baseURL ='https://lianghj.top:8888/api/private/v1/'
 
 //axios 请求拦截
 axios.interceptors.request.use(config => {
@@ -34,6 +35,7 @@ axios.interceptors.request.use(config => {
 /* 挂载到Vue原型上 */
 Vue.prototype.$http = axios
 
+// 可以阻止 vue 在启动时生产环境下不提示
 Vue.config.productionTip = false
 
 /* 注册 tree-table组件 */

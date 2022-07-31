@@ -242,6 +242,7 @@ export default {
       addFormRules: {
         /* 用户名 */
         username: [
+          // 必须输入值，失去表单焦点的时候校验
           { required: true, message: "请输入用户名", trigger: "blur" },
           {
             min: 3,
@@ -263,6 +264,7 @@ export default {
         /* 邮箱 */
         email: [
           { required: true, message: "请输入邮箱", trigger: "blur" },
+          // 自己编写邮箱验证方法
           { validator: checkEmail, trigger: "blur" }
         ],
         /* 电话 */
@@ -297,6 +299,7 @@ export default {
     };
   },
   created() {
+    // 获取用户列表数据
     this.getUserList();
   },
   methods: {
@@ -459,7 +462,7 @@ export default {
       if(!this.selectedRoleId) {
         return this.$message.error('请选择要分配的角色！')
       }
-      
+      // 请求修改角色
       const {data:res} = await this.$http.put(`users/${this.userInfo.id}/role`,{
         rid: this.selectedRoleId
       })
@@ -469,7 +472,9 @@ export default {
       }
 
       this.$message.success('更新角色成功!');
+      // 重新获取数据
       this.getUserList();
+      // 关闭对话框
       this.setRoleDialogVisible = false;
     },
     // 监听分配角色对话框的关闭事件

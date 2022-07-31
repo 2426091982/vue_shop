@@ -69,6 +69,7 @@ export default {
     return {
       /* 左侧菜单数据 */
       menuList: [],
+      // 图标对象
       iconsObj: {
         "125": "iconfont icon-user",
         "103": "iconfont icon-tijikongjian",
@@ -83,6 +84,7 @@ export default {
     };
   },
   created() {
+    // 获取菜单数据
     this.getMenuList();
     /* 从保存的路径中设置最新的路径 */
     this.activePath = window.sessionStorage.getItem('activePath');
@@ -109,7 +111,7 @@ export default {
     toggleCollapse() {
       this.isCollapse = !this.isCollapse;
     },
-    /* 保存链接激活状态 */
+    /* 保存链接激活状态  获取最新的路径*/
     saveNavState(activePath){
       /* 保存 */
       window.sessionStorage.setItem('activePath', activePath);
